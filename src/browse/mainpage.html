@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Weather</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="eel.js"></script>
+
+</head>
+
+<body>
+	<input id="location" type="text" placeholder="Type your country and city in russian" required=""
+		value="Нью-Йорк, США">
+	<button id="show">Show weather</button>
+	<div id="infotable">
+
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+		integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+		crossorigin="anonymous"></script>
+	<script>
+		const tableData = document.getElementById("infotable")
+		async function display_weather() {
+			let place = document.getElementById('location').value;
+			let data = await eel.get_weather(place)();
+			const elem = document.createElement('div');
+			elem.classList.add('tableStyle');
+			elem.innerHTML = data;
+			tableData.appendChild(elem);
+		}
+
+		jQuery('#show').on('click', function () {
+			display_weather();
+
+
+		});
+	</script>
+
+</body>
+
+</html>
