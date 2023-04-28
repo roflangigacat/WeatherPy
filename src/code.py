@@ -1,7 +1,6 @@
 import eel
 import pyowm
 from tabulate import tabulate
-from prettytable import PrettyTable
 owm = pyowm.OWM("178b3f1af37efa266b1b8ff3db366faa")
 
 @eel.expose
